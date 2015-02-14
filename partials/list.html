@@ -1,0 +1,37 @@
+<section class="artistpage">
+  <div class="search">
+    <h1>Book Directory</h1>
+    <label>search: </label>
+    <input ng-model="query" placeholder="Search for books" autofocus>
+
+    <label class="formgroup">by:
+      <select ng-model="bookOrder">
+        <option value="name">Name</option>
+        <option value="subjects">Subjects</option>
+      </select>
+    </label>
+
+    <label class="formgroup">
+      <input type="radio" ng-model="direction" name="direction" checked>
+      ascending
+     </label>
+    <label class="formgroup">
+      <input type="radio" ng-model="direction" name="direction" value="reverse">
+      descending
+    </label>
+   
+  </div>
+  <ul class="artistlist">
+    <li ng-animate="'animate'" class="artist cf" ng-repeat="item in books | filter: query | orderBy: bookOrder:direction">
+      <a href="#/details/{{item.id}}">
+        <img ng-src="images/thumbnails/{{item.id}}.jpg" alt="Photo of {{item.id}}">
+        <div class="info">
+          <h2>{{item.doc.name}}</h2>
+          <h4 ng-repeat="author in item.doc.authors" style="text-align: end">
+            {{author.full_name}}
+          </h4>              
+        </div>       
+      </a>
+    </li>
+  </ul> 
+</section>

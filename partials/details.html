@@ -1,0 +1,11 @@
+<section class="artistinfo">
+  <div class="artist cf" ng-model="books">
+    <h1>{{books[whichItem].doc.name}}</h1>
+    <div class="info">
+      <h3 ng-repeat="author in books[whichItem].doc.authors" style="display:inline">{{author.full_name}}&nbsp;&nbsp;&nbsp;&nbsp;</h3>
+      <img ng-src="images/thumbnails/{{books[whichItem].doc._id}}.jpg" alt="Photo of {{books[whichItem].doc._id}}">
+      <div class="bio">{{books[whichItem].doc.blurb}}</div>
+    </div>
+  </div>
+  <a href="index.html">&laquo; Back to search</a>
+</section>
